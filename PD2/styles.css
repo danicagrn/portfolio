@@ -1,0 +1,331 @@
+/* 1. Design tokens (CSS custom properties) */
+:root {
+    /* Colours (unchanged from PD1) */
+    --primary: #0B6B4B;
+    --primary-dark: #12332A;
+    --accent: #F2A541;
+    --bg: #F7FAF8;
+    --surface: #FFFFFF;
+    --text: #2B2F2E;
+    --muted: #5F6B66;
+    --border: #D5E3DC;
+
+    /* tint used behind code blocks and table headers */
+    --surface-tint: #EEF5F1;
+
+    /* Typography */
+    --font-body: "Inter", Arial, sans-serif;
+    --font-heading: "Inter", Arial, sans-serif;
+    --font-dates-notes: "Inter", Arial, sans-serif;
+    /*  monospace stack for code, endpoints and file names */
+    --font-code: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
+
+    /* Shape */
+    --radius: 12px;
+}
+
+/* 2. Reset and base styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.section { scroll-margin-top: 1rem; }
+
+body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+}
+
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; }
+a { color: var(--primary); }
+
+/* visible keyboard focus for every interactive element */
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* "skip to content" link, hidden until it receives focus */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    background: var(--accent);
+    color: var(--primary-dark);
+    font-weight: 700;
+    padding: .6rem 1rem;
+    border-radius: var(--radius);
+    z-index: 10;
+}
+.skip-link:focus { top: 1rem; }
+
+/* 3. Header */
+.site-header {
+    background: var(--primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem 2rem;
+}
+.site-header h1 { font-size: 2.5rem; }
+.site-header .tagline { color: var(--accent); margin-top: .25rem; font-weight: 600; }
+.site-header .location { color: #cfe3da; font-size: .95rem; margin-top: .25rem; }
+
+/* 4. Navigation */
+.site-nav { background: var(--primary); }
+.site-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.site-nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: .9rem 1.4rem;
+    font-weight: 600;
+}
+.site-nav a:hover { background: var(--primary-dark); }
+.site-nav a:focus-visible { outline-color: #fff; outline-offset: -3px; }
+
+/* 5. Page layout */
+main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+.section { margin-bottom: 2.5rem; }
+.section > h2 {
+    color: var(--primary);
+    font-size: 1.6rem;
+    padding-bottom: .4rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+/*sub-headings that group content inside a long section */
+.section > h3.subheading {
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+    margin: 1.8rem 0 .8rem;
+}
+/* short intro paragraph under a section heading */
+.section-intro { max-width: 70ch; margin-bottom: 1.2rem; color: var(--muted); }
+
+/* 6. Card */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+}
+.card h3 { font-size: 1.1rem; margin-bottom: .25rem; }
+.card .date { color: var(--muted); font-size: .9rem; margin-bottom: .6rem; }
+.card p + p { margin-top: .5rem; }
+.card ul { padding-left: 1.2rem; }
+.card li { margin-bottom: .35rem; }
+/* accent variant for the featured Yatzy project card */
+.card--featured { border-left-color: var(--accent); }
+
+/* 7. Badge  */
+.badge {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary-dark);
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .15rem .6rem;
+    border-radius: 999px;
+    margin-bottom: .5rem;
+}
+/* secondary badge (green) so two badges can sit side by side */
+.badge--green { background: var(--primary); color: #fff; }
+
+/* 8. Layout helpers (flexbox) */
+.grid { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+.grid .card { flex: 1 1 280px; }
+.stack { display: flex; flex-direction: column; gap: 1.2rem; }
+
+/* 9. Tag chips - compact technology labels */
+.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    padding: 0;
+    margin-top: .8rem;
+}
+.card .tags { padding-left: 0; }
+.tag {
+    background: var(--surface-tint);
+    border: 1px solid var(--border);
+    color: var(--primary-dark);
+    font-size: .8rem;
+    font-weight: 600;
+    padding: .15rem .7rem;
+    border-radius: 999px;
+    margin-bottom: 0;
+}
+
+/* 10. Tables (technologies, API reference, colours)
+   The wrapper scrolls sideways on small screens instead of breaking layout.*/
+.table-wrap {
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .95rem;
+}
+.table caption {
+    text-align: left;
+    padding: .8rem 1rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+.table th,
+.table td {
+    text-align: left;
+    vertical-align: top;
+    padding: .7rem 1rem;
+    border-top: 1px solid var(--border);
+}
+.table thead th {
+    background: var(--surface-tint);
+    color: var(--primary-dark);
+    font-size: .85rem;
+}
+.table td:first-child { font-weight: 600; white-space: nowrap; }
+
+/* 11. NEW (PD2): Code - inline code and code blocks */
+code {
+    font-family: var(--font-code);
+    font-size: .88em;
+    background: var(--surface-tint);
+    padding: .1rem .35rem;
+    border-radius: 6px;
+}
+pre {
+    font-family: var(--font-code);
+    font-size: .85rem;
+    line-height: 1.5;
+    background: var(--primary-dark);
+    color: #e6f1ec;
+    padding: 1rem 1.2rem;
+    border-radius: var(--radius);
+    overflow-x: auto;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+
+/* 12. Numbered steps - used for the game flow (a real sequence) */
+.steps {
+    list-style: none;
+    counter-reset: step;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding: 0;
+}
+.steps li {
+    counter-increment: step;
+    display: flex;
+    gap: .8rem;
+    align-items: flex-start;
+    margin-bottom: 0;
+}
+.steps li::before {
+    content: counter(step);
+    flex: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+}
+
+/* 13. Colour swatches - show the Yatzy game palette
+   Each swatch reads its colour from the --swatch custom property. */
+.swatches {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    padding: 0;
+}
+.swatch {
+    flex: 1 1 130px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-size: .85rem;
+}
+.swatch::before {
+    content: "";
+    display: block;
+    height: 3rem;
+    background: var(--swatch);
+}
+.swatch span { display: block; padding: .5rem .7rem 0; font-weight: 700; }
+.swatch code { display: inline-block; margin: .1rem .7rem .6rem; }
+.swatch--lagoon-900 { --swatch: #0C2A30; }
+.swatch--lagoon-700 { --swatch: #14434B; }
+.swatch--lagoon-500 { --swatch: #2A6A73; }
+.swatch--bone       { --swatch: #F4EFE4; }
+.swatch--pip-red    { --swatch: #C8372D; }
+.swatch--brass      { --swatch: #E0A93B; }
+
+/* Figures and galleries - screenshots with captions
+Images keep their natural size (max-wdith only) so small screenshots 
+are never stretched or blurred */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+}
+.figure {
+    flex: 1 1 300px;
+    margin: 0;
+    padding: .8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+.figure--narrow { flex: 0 1 180px; }
+.figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+.figure figcaption {
+    margin-top: .6rem;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+/* 14. Footer */
+.site-footer {
+    background: var(--primary-dark);
+    color: #cfe3da;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: .9rem;
+}
+.site-footer a { color: var(--accent); }
+
+/* 15. Responsive */
+@media (max-width: 700px) {
+    .site-header h1 { font-size: 1.9rem; }
+    .site-nav ul { flex-direction: column; }
+    .site-nav a { text-align: center; border-top: 1px solid rgba(255, 255, 255, .15); }
+    .grid { flex-direction: column; }
+    .table td:first-child { white-space: normal; }
+}
