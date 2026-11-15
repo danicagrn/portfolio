@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- FIX (PD2): was "<DOCTYPE html>", missing the "!" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Danica Green, Business Systems Development student at Algonquin College, featuring the Yatzy full-stack game.">
+  <title>Danica Green | Portfolio</title>
+  <!-- Inter is the only font used by the design system (Poppins was unused and removed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Lets keyboard and screen reader users jump past the navigation -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- Site header -->
+    <header class="site-header">
+        <h1>Danica Green</h1>
+        <p class="tagline">Business Systems Development Student</p>
+        <p class="location">Nepean, ON &nbsp; |&nbsp; 613-266-7276 |&nbsp; danica@casagreenfield.ca</p>
+    </header>
+
+    <!-- Main navigation (anchor links to each section) -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a href="#highlights">Highlights</a></li>
+            <li><a href="#yatzy">Yatzy Game</a></li>
+            <li><a href="#technologies">Technologies</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#activities">School Activities</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- Highlights  -->
+        <section class="section" id="highlights" aria-labelledby="highlights-title">
+            <h2 id="highlights-title">Highlights</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Working with Children</h3>
+                    <p>Extensive experience leading children in structured and non structured activities through volunteering and school.</p>
+                </article>
+                <article class="card">
+                    <h3>Teamwork</h3>
+                    <p>Takes on whatever role is needed to meet deadlines, including VP of Finance in Grade 12 Business Leadership.</p>
+                </article>
+                <article class="card">
+                    <h3>Tools</h3>
+                    <p>Experience using Java, Python and C/C++, SQL/MySQL.</p>
+                    <p>Web development with HTML, CSS, JavaScript, jQuery, Node.js and Express.</p>
+                    <p>Experience using Microsoft Windows applications: Word, Excel and PowerPoint.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Yatzy game project -->
+        <section class="section" id="yatzy" aria-labelledby="yatzy-title">
+            <h2 id="yatzy-title">Yatzy Game</h2>
+            <p class="section-intro">
+                A browser-based version of the dice game Yatzy. Players roll five dice up to three times a turn,
+                hold the ones they want and fill a 15-category scorecard. It was built in two stages: a designed,
+                client-only game (Assignment 1), then a version with a Node.js server (Assignment 2).
+            </p>
+
+            <!-- Project overview -->
+            <article class="card card--featured">
+                <span class="badge">Assignment 1</span>
+                <span class="badge badge--green">Assignment 2</span>
+                <h3>Yatzy: from design system to client-server game</h3>
+                <p>
+                    Assignment 1 produced the design system, dice design and HTML/CSS mock-ups, plus the game logic
+                    in JavaScript. Assignment 2 moved that logic to an Express server so the server owns the game
+                    state, rolls the dice and checks every rule. The browser only draws the interface and sends
+                    the player's actions with the Fetch API.
+                </p>
+                <ul class="tags" aria-label="Yatzy technologies">
+                    <li class="tag">HTML</li>
+                    <li class="tag">CSS</li>
+                    <li class="tag">JavaScript</li>
+                    <li class="tag">jQuery</li>
+                    <li class="tag">Node.js</li>
+                    <li class="tag">Express</li>
+                    <li class="tag">REST API</li>
+                    <li class="tag">JSON</li>
+                    <li class="tag">Fetch API</li>
+                    <li class="tag">GitHub</li>
+                </ul>
+            </article>
+             <!-- Screenshots: desktop + mobile views, then board close-up and end screen -->
+            <h3 class="subheading">Screenshots</h3>
+            <div class="gallery">
+                <figure class="figure">
+                    <img src="images/full_Board.png" width="497" height="586"
+                         alt="Full Yatzy game screen on desktop: the dice board on the left and the paper-style scorecard on the right, in round 7 of 15 with a total score of 53.">
+                    <figcaption>Desktop: dice board and scorecard side by side.</figcaption>
+                </figure>
+                <figure class="figure figure--narrow">
+                    <img src="images/Mobile.png" width="125" height="622"
+                         alt="Yatzy on a phone: the board and scorecard stacked in a single column.">
+                    <figcaption>Phone: the same screen stacked in one column.</figcaption>
+                </figure>
+            </div>
+            <div class="gallery">
+                <figure class="figure">
+                    <img src="images/Board.png" width="1098" height="960" loading="lazy"
+                         alt="Close-up of the game board. Three dice showing 4 are held with brass rings, two dice are marked Will reroll, and the Score 12 in Fours button is shown beside Roll dice.">
+                    <figcaption>Board: held dice get a brass ring, and the hint box suggests what to score.</figcaption>
+                </figure>
+                <figure class="figure">
+                    <img src="images/game_over.png" width="920" height="798" loading="lazy"
+                         alt="Game over screen showing a final score of 231, with upper total 66, bonus 50, lower section 115 and a Play again button.">
+                    <figcaption>Game over: final score with upper total, bonus and lower section.</figcaption>
+                </figure>
+            </div>
+
+            <!-- Key technologies -->
+            <h3 class="subheading">Key technologies used</h3>
+            <div class="table-wrap">
+                <table class="table">
+                    <caption>Technologies in the Yatzy game and how each one was used</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Technology</th>
+                            <th scope="col">How I used it</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>jQuery</td>
+                            <td>Loaded from a CDN with a Google CDN fallback. Its <code>.animate()</code> method spins the dice, and it handles DOM updates and events.</td>
+                        </tr>
+                        <tr>
+                            <td>JSON &amp; Fetch API</td>
+                            <td>Every roll, hold and score is a request to the server. Bodies and replies are JSON.</td>
+                        </tr>
+                        <tr>
+                            <td>Node.js &amp; npm</td>
+                            <td>Runs the server-side game logic and manages the Express dependency (<code>npm install</code>, <code>npm start</code>).</td>
+                        </tr>
+                        <tr>
+                            <td>Express.js</td>
+                            <td>Creates the server, serves the <code>public/</code> client files and defines the RESTful API routes.</td>
+                        </tr>
+                        <tr>
+                            <td>MVC-style separation</td>
+                            <td>Game rules live in <code>game/</code> (model), routes in <code>server.js</code> (controller) and the interface in <code>public/</code> (view).</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript DOM</td>
+                            <td>The interface is redrawn from the server's state object after every action.</td>
+                        </tr>
+                        <tr>
+                            <td>Async / await</td>
+                            <td>Used with <code>fetch</code> so rolls and scoring never freeze the page while the server replies.</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript &amp; CSS animation</td>
+                            <td>Dice tumble with small rotations, and they stop one by one, 150 ms apart. Reduced-motion users skip the animation.</td>
+                        </tr>
+                        <tr>
+                            <td>VS Code &amp; GitHub</td>
+                            <td>VS Code for editing. GitHub for version control, with the work committed to my <code>portfolio</code> repository.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Architecture -->
+            <h3 class="subheading">Architecture</h3>
+            <div class="grid">
+                <article class="card">
+                    <h3>Before: client only</h3>
+                    <p>The dice, scoring and game files ran in the browser, and state lived in JavaScript variables on the page.</p>
+                </article>
+                <article class="card">
+                    <h3>After: client + server</h3>
+                    <p>The same files now run in Node. State lives in a <code>Map</code> on the server, one entry per game, and <code>main.js</code> calls the API with <code>fetch</code>.</p>
+                </article>
+            </div>
+            <!-- Project structure shown as preformatted text -->
+<pre><code>assignment2/
+├── server.js            Express app + REST API routes
+├── package.json         dependencies and npm scripts
+├── game/                game logic (server side)
+│   ├── dice.js          rolling and holding dice
+│   ├── yatzy_engine.js  scoring rules and score table
+│   └── yatzy_game.js    rounds, rolls per turn, game over, best score
+└── public/              client, served statically by Express
+    ├── index.html
+    ├── style.css
+    └── main.js          UI + Fetch API calls</code></pre>
+
+            <!-- REST API -->
+            <h3 class="subheading">REST API</h3>
+            <p class="section-intro">
+                <code>POST</code> is used for actions that are not repeatable (a roll gives new random dice every time).
+                <code>PUT</code> sets something to a known value, so repeating it is harmless.
+                <code>GET</code> only reads and <code>DELETE</code> removes a game.
+            </p>
+            <div class="table-wrap">
+                <table class="table">
+                    <caption>Yatzy API endpoints</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Method</th>
+                            <th scope="col">Endpoint</th>
+                            <th scope="col">Purpose</th>
+                            <th scope="col">Success</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>POST</td><td><code>/api/games</code></td><td>Create a new game</td><td>201 + state</td></tr>
+                        <tr><td>GET</td><td><code>/api/games/:id</code></td><td>Read current state</td><td>200 + state</td></tr>
+                        <tr><td>POST</td><td><code>/api/games/:id/roll</code></td><td>Roll all dice that are not held</td><td>200 + state</td></tr>
+                        <tr><td>PUT</td><td><code>/api/games/:id/dice/:index/hold</code></td><td>Hold or release die 0 to 4</td><td>200 + state</td></tr>
+                        <tr><td>POST</td><td><code>/api/games/:id/score</code></td><td>Lock the current dice into a category</td><td>200 + state</td></tr>
+                        <tr><td>PUT</td><td><code>/api/games/:id/restart</code></td><td>Restart, keeping the best score</td><td>200 + state</td></tr>
+                        <tr><td>DELETE</td><td><code>/api/games/:id</code></td><td>Delete the game</td><td>204</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="section-intro">
+                Errors always return <code>{ "error": "message" }</code> with a status code:
+                <strong>400</strong> for a bad request, <strong>404</strong> when a game or route is not found,
+                and <strong>409</strong> when an action breaks a game rule, such as a fourth roll in one turn.
+            </p>
+
+            <!-- Game flow: a real sequence, so numbered steps are appropriate -->
+            <h3 class="subheading">How a turn works</h3>
+            <article class="card">
+                <ol class="steps">
+                    <li>Press <strong>Roll dice</strong>. The client sends <code>POST /roll</code> and the server rolls all five dice.</li>
+                    <li>Press dice to <strong>hold</strong> them. Each click sends <code>PUT .../hold</code>.</li>
+                    <li>Roll again to reroll only the dice that are not held (up to three rolls per turn).</li>
+                    <li>Pick a category on the scorecard. Its "would score" number comes from the server.</li>
+                    <li>Press <strong>Score</strong>. The server locks the category and starts the next round.</li>
+                    <li>After round 15 the game ends and shows the upper total, bonus, lower total and final score.</li>
+                </ol>
+            </article>
+
+            <!-- Design system for the game -->
+            <h3 class="subheading">Game design system (Assignment 1)</h3>
+            <p class="section-intro">
+                The game has its own palette and fonts, separate from this portfolio.
+                Headings use Bricolage Grotesque for a playful feel. Body text and scores use
+                Atkinson Hyperlegible, which keeps letters and numbers easy to tell apart.
+            </p>
+            <ul class="swatches" aria-label="Yatzy colour palette">
+                <li class="swatch swatch--lagoon-900"><span>Lagoon 900</span><code>#0C2A30</code></li>
+                <li class="swatch swatch--lagoon-700"><span>Lagoon 700</span><code>#14434B</code></li>
+                <li class="swatch swatch--lagoon-500"><span>Lagoon 500</span><code>#2A6A73</code></li>
+                <li class="swatch swatch--bone"><span>Bone</span><code>#F4EFE4</code></li>
+                <li class="swatch swatch--pip-red"><span>Pip Red</span><code>#C8372D</code></li>
+                <li class="swatch swatch--brass"><span>Brass</span><code>#E0A93B</code></li>
+            </ul>
+
+            <!-- Highlights and challenges -->
+            <h3 class="subheading">Highlights and challenges</h3>
+            <div class="grid">
+                <article class="card">
+                    <h3>Responsive design</h3>
+                    <p>Dice are 88 px on desktop and shrink to 56 px on a phone, using Flexbox and media queries.</p>
+                </article>
+                <article class="card">
+                    <h3>Asynchronous operations</h3>
+                    <p>Rolls and scoring use async/await, and the buttons and scorecard lock while the dice spin so a second action cannot slip in.</p>
+                </article>
+                <article class="card">
+                    <h3>Server-client interaction</h3>
+                    <p>The client holds no rules. Even the potential scores come from the server, so the two can never disagree.</p>
+                </article>
+                <article class="card">
+                    <h3>Animation</h3>
+                    <p>The server rolls the real values first. The animation only decorates, then every die settles on the server's value.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Other technologies learned in the course -->
+        <section class="section" id="technologies" aria-labelledby="technologies-title">
+            <h2 id="technologies-title">Other Technologies and Best Practices</h2>
+            <p class="section-intro">
+                Not everything from the course fit into the Yatzy game, but it all shapes how I build.
+                This page itself uses several of these practices.
+            </p>
+            <div class="grid">
+                <article class="card">
+                    <h3>Core web technologies</h3>
+                    <p>HTML, CSS and JavaScript, from static pages to dynamic web applications.</p>
+                    <ul class="tags" aria-label="Core web technologies">
+                        <li class="tag">HTML5</li>
+                        <li class="tag">CSS3</li>
+                        <li class="tag">JavaScript</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Styling tools</h3>
+                    <p>SCSS adds variables and nesting to CSS. Bootstrap and Tailwind CSS showed me two approaches to responsive design: ready-made components and utility-first classes.</p>
+                    <ul class="tags" aria-label="Styling tools">
+                        <li class="tag">SCSS</li>
+                        <li class="tag">Bootstrap</li>
+                        <li class="tag">Tailwind CSS</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Web services and protocols</h3>
+                    <p>RESTful design for web services, and the HTTP and TCP/IP protocols underneath them.</p>
+                    <ul class="tags" aria-label="Web services and protocols">
+                        <li class="tag">REST</li>
+                        <li class="tag">HTTP</li>
+                        <li class="tag">TCP/IP</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Accessibility</h3>
+                    <p>WCAG, semantic HTML and ARIA roles so content works for everyone. This page has a skip link, labelled sections, visible keyboard focus and reduced-motion support.</p>
+                    <ul class="tags" aria-label="Accessibility topics">
+                        <li class="tag">WCAG</li>
+                        <li class="tag">ARIA</li>
+                        <li class="tag">Semantic HTML</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Designing for different platforms</h3>
+                    <p>Layouts that work across devices, browsers and screen sizes, built with Flexbox, media queries and relative units.</p>
+                    <ul class="tags" aria-label="Cross-platform topics">
+                        <li class="tag">Flexbox</li>
+                        <li class="tag">Media queries</li>
+                        <li class="tag">Responsive</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Design system</h3>
+                    <p>Colours, fonts and components are written down in a Markdown README and reused across pages through CSS custom properties.</p>
+                    <ul class="tags" aria-label="Design system tools">
+                        <li class="tag">Markdown</li>
+                        <li class="tag">CSS variables</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Education  -->
+        <section class="section" id="education" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            <div class="stack">
+                <article class="card">
+                    <span class="badge">In progress</span>
+                    <h3>Bachelor of Technology, Business Systems Development (Honours - Co-op)</h3>
+                    <p class="date">Algonquin College &middot; September 2025 - present &middot; Expected graduation 2029</p>
+                </article>
+                <article class="card">
+                    <h3>High School Diploma</h3>
+                    <p class="date">St. Mother Teresa High School, Ottawa, ON</p>
+                    <p>Obtained the Certificat d'études en français</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Volunteer experience -->
+        <section class="section" id="volunteer" aria-labelledby="volunteer-title">
+            <h2 id="volunteer-title">Volunteer Experience</h2>
+            <div class="stack">
+                <article class="card">
+                    <h3>Youth Services Bureau - Youth Cabinet</h3>
+                    <p class="date">2022 - 2025</p>
+                    <ul>
+                        <li>Participated in and co-led bi-monthly Youth Cabinet meetings.</li>
+                        <li>Volunteered at events including Pride Paintings with Health Canada, Pride Parade, Pride Prom, Tim Tierney Pancake Breakfast and Coldest Night of the Year.</li>
+                        <li>Networked with donors and potential donors about the importance of the Youth Services Bureau.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Technovations</h3>
+                    <p class="date">2020 - 2021</p>
+                    <ul>
+                        <li>Worked in a team with mentors to develop an app that matches babysitters and clients.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Dance Assistant</h3>
+                    <p class="date">2019 - 2020</p>
+                    <ul>
+                        <li>Helped instructors teach dance moves to children aged 4-5.</li>
+                        <li>Assisted children with getting into their dance gear.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- School activities -->
+        <section class="section" id="activities" aria-labelledby="activities-title">
+            <h2 id="activities-title">School Activities</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Eco Club</h3>
+                    <p class="date">2023 - 2025</p>
+                    <ul>
+                        <li>Created recycling initiatives for the school.</li>
+                        <li>Took part in Cleaning the Capital.</li>
+                        <li>Encouraged participation in Earth Month, the Great Gulp and Earth Hour.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Spirit Coordinator, Student Council</h3>
+                    <p class="date">2022 - 2023</p>
+                    <ul>
+                        <li>Attended weekly meetings to develop school activities.</li>
+                        <li>Helped plan and set up school events.</li>
+                        <li>Designed posters for Spirit Weeks, Relay for Life and Candy grams.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Key Club</h3>
+                    <p class="date">2021 - 2022</p>
+                    <ul>
+                        <li>Discussed fundraising opportunities for the school and community.</li>
+                        <li>Joined the Key Club float in the Manotick Santa Claus parade.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <h3>Pals and Patrols</h3>
+                    <p class="date">2018 - 2019</p>
+                    <ul>
+                        <li>Created lunch break games for grades 1-2 and supervised primary classrooms.</li>
+                        <li>Helped younger students follow the rules on the school bus.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Danica Green &middot; <a href="mailto:danica@casagreenfield.ca">danica@casagreenfield.ca</a></p>
+        <p>References available upon request.</p>
+    </footer>
+
+</body>
+</html>
+
