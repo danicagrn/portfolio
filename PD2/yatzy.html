@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical documentation of Danica Green's Yatzy game: Node.js, Express, REST API, jQuery and Fetch API.">
+  <title>Yatzy Game | Danica Green</title>
+  <!-- Inter is the only font used by the design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Lets keyboard and screen reader users jump past the navigation -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- ===== Site header ===== -->
+    <header class="site-header">
+        <h1>Yatzy Game</h1>
+        <p class="tagline">A full-stack dice game by Danica Green</p>
+        <p class="location">Assignment 1 (design and client) &nbsp;|&nbsp; Assignment 2 (Node.js server)</p>
+    </header>
+
+    <!-- Main navigation: resume page, then sections of this page  -->
+    <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+            <li><a class="site-nav__page" href="index.html">&larr; Resume</a></li>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#screenshots">Screenshots</a></li>
+            <li><a href="#key-technologies">Technologies</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#rest-api">REST API</a></li>
+            <li><a href="#game-flow">Game Flow</a></li>
+            <li><a href="#game-design">Design</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- Overview  -->
+        <section class="section" id="overview" aria-labelledby="overview-title">
+            <h2 id="overview-title">About the Project</h2>
+            <p class="section-intro">
+                A browser-based version of the dice game Yatzy. Players roll five dice up to three times a turn,
+                hold the ones they want and fill a 15-category scorecard. It was built in two stages: a designed,
+                client-only game (Assignment 1), then a full-stack version with a Node.js server (Assignment 2).
+            </p>
+
+            <!-- Project overview -->
+            <article class="card card--featured">
+                <span class="badge">Assignment 1</span>
+                <span class="badge badge--green">Assignment 2</span>
+                <h3>Yatzy: from design system to client-server game</h3>
+                <p>
+                    Assignment 1 produced the design system, dice design and HTML/CSS mock-ups, plus the game logic
+                    in JavaScript. Assignment 2 moved that logic to an Express server so the server owns the game
+                    state, rolls the dice and checks every rule. The browser only draws the interface and sends
+                    the player's actions with the Fetch API.
+                </p>
+                <ul class="tags" aria-label="Yatzy technologies">
+                    <li class="tag">HTML</li>
+                    <li class="tag">CSS</li>
+                    <li class="tag">JavaScript</li>
+                    <li class="tag">jQuery</li>
+                    <li class="tag">Node.js</li>
+                    <li class="tag">Express</li>
+                    <li class="tag">REST API</li>
+                    <li class="tag">JSON</li>
+                    <li class="tag">Fetch API</li>
+                    <li class="tag">GitHub</li>
+                </ul>
+            </article>
+        </section>
+
+        <!--  Screenshots  -->
+        <section class="section" id="screenshots" aria-labelledby="screenshots-title">
+            <h2 id="screenshots-title">Screenshots</h2>
+            <div class="gallery">
+                <figure class="figure">
+                    <img src="images/full_Board.png" width="497" height="586"
+                         alt="Full Yatzy game screen on desktop: the dice board on the left and the paper-style scorecard on the right, in round 7 of 15 with a total score of 53.">
+                    <figcaption>Desktop: dice board and scorecard side by side.</figcaption>
+                </figure>
+                <figure class="figure figure--narrow">
+                    <img src="images/Mobile.png" width="125" height="622"
+                         alt="Yatzy on a phone: the board and scorecard stacked in a single column.">
+                    <figcaption>Phone: the same screen stacked in one column.</figcaption>
+                </figure>
+            </div>
+            <div class="gallery">
+                <figure class="figure">
+                    <img src="images/Board.png" width="1098" height="960" loading="lazy"
+                         alt="Close-up of the game board. Three dice showing 4 are held with brass rings, two dice are marked Will reroll, and the Score 12 in Fours button is shown beside Roll dice.">
+                    <figcaption>Board: held dice get a brass ring, and the hint box suggests what to score.</figcaption>
+                </figure>
+                <figure class="figure">
+                    <img src="images/game_over.png" width="920" height="798" loading="lazy"
+                         alt="Game over screen showing a final score of 231, with upper total 66, bonus 50, lower section 115 and a Play again button.">
+                    <figcaption>Game over: final score with upper total, bonus and lower section.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!--  Key technologies used  -->
+        <section class="section" id="key-technologies" aria-labelledby="key-technologies-title">
+            <h2 id="key-technologies-title">Key technologies used</h2>
+            <div class="table-wrap">
+                <table class="table">
+                    <caption>Technologies in the Yatzy game and how each one was used</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Technology</th>
+                            <th scope="col">How I used it</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>jQuery</td>
+                            <td>Loaded from a CDN with a Google CDN fallback. Its <code>.animate()</code> method spins the dice, and it handles DOM updates and events.</td>
+                        </tr>
+                        <tr>
+                            <td>JSON &amp; Fetch API</td>
+                            <td>Every roll, hold and score is a request to the server. Bodies and replies are JSON.</td>
+                        </tr>
+                        <tr>
+                            <td>Node.js &amp; npm</td>
+                            <td>Runs the server-side game logic and manages the Express dependency (<code>npm install</code>, <code>npm start</code>).</td>
+                        </tr>
+                        <tr>
+                            <td>Express.js</td>
+                            <td>Creates the server, serves the <code>public/</code> client files and defines the RESTful API routes.</td>
+                        </tr>
+                        <tr>
+                            <td>MVC-style separation</td>
+                            <td>Game rules live in <code>game/</code> (model), routes in <code>server.js</code> (controller) and the interface in <code>public/</code> (view).</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript DOM</td>
+                            <td>The interface is redrawn from the server's state object after every action.</td>
+                        </tr>
+                        <tr>
+                            <td>Async / await</td>
+                            <td>Used with <code>fetch</code> so rolls and scoring never freeze the page while the server replies.</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript &amp; CSS animation</td>
+                            <td>Dice tumble with small rotations, and they stop one by one, 150 ms apart. Reduced-motion users skip the animation.</td>
+                        </tr>
+                        <tr>
+                            <td>VS Code &amp; GitHub</td>
+                            <td>VS Code for editing. GitHub for version control, with the work committed to my <code>portfolio</code> repository.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--  Architecture -->
+        <section class="section" id="architecture" aria-labelledby="architecture-title">
+            <h2 id="architecture-title">Architecture</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Before: client only</h3>
+                    <p>The dice, scoring and game files ran in the browser, and state lived in JavaScript variables on the page.</p>
+                </article>
+                <article class="card">
+                    <h3>After: client + server</h3>
+                    <p>The same files now run in Node. State lives in a <code>Map</code> on the server, one entry per game, and <code>main.js</code> calls the API with <code>fetch</code>.</p>
+                </article>
+            </div>
+            <!-- Project structure shown as preformatted text -->
+<pre><code>assignment2/
+├── server.js            Express app + REST API routes
+├── package.json         dependencies and npm scripts
+├── game/                game logic (server side)
+│   ├── dice.js          rolling and holding dice
+│   ├── yatzy_engine.js  scoring rules and score table
+│   └── yatzy_game.js    rounds, rolls per turn, game over, best score
+└── public/              client, served statically by Express
+    ├── index.html
+    ├── style.css
+    └── main.js          UI + Fetch API calls</code></pre>
+        </section>
+
+        <!--  REST API  -->
+        <section class="section" id="rest-api" aria-labelledby="rest-api-title">
+            <h2 id="rest-api-title">REST API</h2>
+            <p class="section-intro">
+                <code>POST</code> is used for actions that are not repeatable (a roll gives new random dice every time).
+                <code>PUT</code> sets something to a known value, so repeating it is harmless.
+                <code>GET</code> only reads and <code>DELETE</code> removes a game.
+            </p>
+            <div class="table-wrap">
+                <table class="table">
+                    <caption>Yatzy API endpoints</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Method</th>
+                            <th scope="col">Endpoint</th>
+                            <th scope="col">Purpose</th>
+                            <th scope="col">Success</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>POST</td><td><code>/api/games</code></td><td>Create a new game</td><td>201 + state</td></tr>
+                        <tr><td>GET</td><td><code>/api/games/:id</code></td><td>Read current state</td><td>200 + state</td></tr>
+                        <tr><td>POST</td><td><code>/api/games/:id/roll</code></td><td>Roll all dice that are not held</td><td>200 + state</td></tr>
+                        <tr><td>PUT</td><td><code>/api/games/:id/dice/:index/hold</code></td><td>Hold or release die 0 to 4</td><td>200 + state</td></tr>
+                        <tr><td>POST</td><td><code>/api/games/:id/score</code></td><td>Lock the current dice into a category</td><td>200 + state</td></tr>
+                        <tr><td>PUT</td><td><code>/api/games/:id/restart</code></td><td>Restart, keeping the best score</td><td>200 + state</td></tr>
+                        <tr><td>DELETE</td><td><code>/api/games/:id</code></td><td>Delete the game</td><td>204</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="section-intro">
+                Errors always return <code>{ "error": "message" }</code> with a status code:
+                <strong>400</strong> for a bad request, <strong>404</strong> when a game or route is not found,
+                and <strong>409</strong> when an action breaks a game rule, such as a fourth roll in one turn.
+            </p>
+        </section>
+
+        <!--  How a turn works -->
+        <section class="section" id="game-flow" aria-labelledby="game-flow-title">
+            <h2 id="game-flow-title">How a turn works</h2>
+            <article class="card">
+                <ol class="steps">
+                    <li>Press <strong>Roll dice</strong>. The client sends <code>POST /roll</code> and the server rolls all five dice.</li>
+                    <li>Press dice to <strong>hold</strong> them. Each click sends <code>PUT .../hold</code>.</li>
+                    <li>Roll again to reroll only the dice that are not held (up to three rolls per turn).</li>
+                    <li>Pick a category on the scorecard. Its "would score" number comes from the server.</li>
+                    <li>Press <strong>Score</strong>. The server locks the category and starts the next round.</li>
+                    <li>After round 15 the game ends and shows the upper total, bonus, lower total and final score.</li>
+                </ol>
+            </article>
+        </section>
+
+        <!-- Game design system (Assignment 1)  -->
+        <section class="section" id="game-design" aria-labelledby="game-design-title">
+            <h2 id="game-design-title">Game design system (Assignment 1)</h2>
+            <p class="section-intro">
+                The game has its own palette and fonts, separate from this portfolio.
+                Headings use Bricolage Grotesque for a playful feel. Body text and scores use
+                Atkinson Hyperlegible, which keeps letters and numbers easy to tell apart.
+            </p>
+            <ul class="swatches" aria-label="Yatzy colour palette">
+                <li class="swatch swatch--lagoon-900"><span>Lagoon 900</span><code>#0C2A30</code></li>
+                <li class="swatch swatch--lagoon-700"><span>Lagoon 700</span><code>#14434B</code></li>
+                <li class="swatch swatch--lagoon-500"><span>Lagoon 500</span><code>#2A6A73</code></li>
+                <li class="swatch swatch--bone"><span>Bone</span><code>#F4EFE4</code></li>
+                <li class="swatch swatch--pip-red"><span>Pip Red</span><code>#C8372D</code></li>
+                <li class="swatch swatch--brass"><span>Brass</span><code>#E0A93B</code></li>
+            </ul>
+        </section>
+
+        <!--  Highlights and challenges  -->
+        <section class="section" id="challenges" aria-labelledby="challenges-title">
+            <h2 id="challenges-title">Highlights and challenges</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>Responsive design</h3>
+                    <p>Dice are 88 px on desktop and shrink to 56 px on a phone, using Flexbox and media queries.</p>
+                </article>
+                <article class="card">
+                    <h3>Asynchronous operations</h3>
+                    <p>Rolls and scoring use async/await, and the buttons and scorecard lock while the dice spin so a second action cannot slip in.</p>
+                </article>
+                <article class="card">
+                    <h3>Server-client interaction</h3>
+                    <p>The client holds no rules. Even the potential scores come from the server, so the two can never disagree.</p>
+                </article>
+                <article class="card">
+                    <h3>Animation</h3>
+                    <p>The server rolls the real values first. The animation only decorates, then every die settles on the server's value.</p>
+                </article>
+            </div>
+        </section>
+
+        <!--  Link back to the resume  -->
+        <p class="back-link"><a href="index.html">&larr; Back to resume</a></p>
+    </main>
+
+    <!-- Site footer (same on every page)  -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Danica Green &middot; <a href="mailto:danica@casagreenfield.ca">danica@casagreenfield.ca</a></p>
+        <p>References available upon request.</p>
+    </footer>
+
+</body>
+</html>
