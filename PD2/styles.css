@@ -1,3 +1,5 @@
+
+
 /* 1. Design tokens (CSS custom properties) */
 :root {
     /* Colours (unchanged from PD1) */
@@ -17,16 +19,19 @@
     --font-body: "Inter", Arial, sans-serif;
     --font-heading: "Inter", Arial, sans-serif;
     --font-dates-notes: "Inter", Arial, sans-serif;
-    /*  monospace stack for code, endpoints and file names */
+    /* NEW (PD2): monospace stack for code, endpoints and file names */
     --font-code: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
 
     /* Shape */
     --radius: 12px;
 }
 
-/* 2. Reset and base styles */
+/*  2. Reset and base styles */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* keeps a section heading from sitting flush against the top
+   of the window after a nav link jumps to it. Smooth scrolling was removed
+   because it can stall on long pages and make anchor links look broken. */
 .section { scroll-margin-top: 1rem; }
 
 body {
@@ -39,7 +44,7 @@ body {
 h1, h2, h3 { font-family: var(--font-heading); line-height: 1.25; }
 a { color: var(--primary); }
 
-/* visible keyboard focus for every interactive element */
+/*  visible keyboard focus for every interactive element */
 a:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 2px;
@@ -59,7 +64,7 @@ a:focus-visible {
 }
 .skip-link:focus { top: 1rem; }
 
-/* 3. Header */
+/*  3. Header */
 .site-header {
     background: var(--primary-dark);
     color: #fff;
@@ -88,6 +93,10 @@ a:focus-visible {
 .site-nav a:hover { background: var(--primary-dark); }
 .site-nav a:focus-visible { outline-color: #fff; outline-offset: -3px; }
 
+/* NEW (PD2): link that leaves the current page (e.g. Resume <-> Yatzy) */
+.site-nav .site-nav__page { color: var(--accent); }
+.site-nav .site-nav__page:hover { color: #fff; }
+
 /* 5. Page layout */
 main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 .section { margin-bottom: 2.5rem; }
@@ -99,13 +108,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
     border-bottom: 3px solid var(--accent);
     display: inline-block;
 }
-/*sub-headings that group content inside a long section */
-.section > h3.subheading {
-    color: var(--primary-dark);
-    font-size: 1.2rem;
-    margin: 1.8rem 0 .8rem;
-}
-/* short intro paragraph under a section heading */
+/* NEW (PD2): short intro paragraph under a section heading */
 .section-intro { max-width: 70ch; margin-bottom: 1.2rem; color: var(--muted); }
 
 /* 6. Card */
@@ -121,10 +124,10 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 .card p + p { margin-top: .5rem; }
 .card ul { padding-left: 1.2rem; }
 .card li { margin-bottom: .35rem; }
-/* accent variant for the featured Yatzy project card */
+/* NEW (PD2): accent variant for the featured Yatzy project card */
 .card--featured { border-left-color: var(--accent); }
 
-/* 7. Badge  */
+/*  7. Badge */
 .badge {
     display: inline-block;
     background: var(--accent);
@@ -135,15 +138,15 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
     border-radius: 999px;
     margin-bottom: .5rem;
 }
-/* secondary badge (green) so two badges can sit side by side */
+/* NEW (PD2): secondary badge (green) so two badges can sit side by side */
 .badge--green { background: var(--primary); color: #fff; }
 
-/* 8. Layout helpers (flexbox) */
+/*  8. Layout helpers (flexbox) */
 .grid { display: flex; flex-wrap: wrap; gap: 1.2rem; }
 .grid .card { flex: 1 1 280px; }
 .stack { display: flex; flex-direction: column; gap: 1.2rem; }
 
-/* 9. Tag chips - compact technology labels */
+  /* 9. Tag chips - compact technology labels */
 .tags {
     list-style: none;
     display: flex;
@@ -164,8 +167,8 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
     margin-bottom: 0;
 }
 
-/* 10. Tables (technologies, API reference, colours)
-   The wrapper scrolls sideways on small screens instead of breaking layout.*/
+/*  10.  Tables (technologies, API reference, colours)
+   The wrapper scrolls sideways on small screens instead of breaking layout. */
 .table-wrap {
     overflow-x: auto;
     background: var(--surface);
@@ -197,7 +200,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 }
 .table td:first-child { font-weight: 600; white-space: nowrap; }
 
-/* 11. NEW (PD2): Code - inline code and code blocks */
+/* 11.  Code - inline code and code blocks */
 code {
     font-family: var(--font-code);
     font-size: .88em;
@@ -247,7 +250,7 @@ pre code { background: none; padding: 0; font-size: inherit; }
     place-items: center;
 }
 
-/* 13. Colour swatches - show the Yatzy game palette
+/*  13. Colour swatches - show the Yatzy game palette
    Each swatch reads its colour from the --swatch custom property. */
 .swatches {
     list-style: none;
@@ -279,9 +282,9 @@ pre code { background: none; padding: 0; font-size: inherit; }
 .swatch--pip-red    { --swatch: #C8372D; }
 .swatch--brass      { --swatch: #E0A93B; }
 
-/* Figures and galleries - screenshots with captions
-Images keep their natural size (max-wdith only) so small screenshots 
-are never stretched or blurred */
+/*  Figures and galleries - screenshots with captions
+   Images keep their natural size (max-width only), so small screenshots
+   are never stretched and blurred. */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -311,7 +314,10 @@ are never stretched or blurred */
     color: var(--muted);
 }
 
-/* 14. Footer */
+/* "Back to resume" link at the end of the Yatzy page */
+.back-link { margin-bottom: 2.5rem; font-weight: 600; }
+
+/*14. Footer*/
 .site-footer {
     background: var(--primary-dark);
     color: #cfe3da;
@@ -321,7 +327,7 @@ are never stretched or blurred */
 }
 .site-footer a { color: var(--accent); }
 
-/* 15. Responsive */
+/*15. Responsive */
 @media (max-width: 700px) {
     .site-header h1 { font-size: 1.9rem; }
     .site-nav ul { flex-direction: column; }
