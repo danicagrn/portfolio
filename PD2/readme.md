@@ -1,6 +1,6 @@
 # Danica Green Portfolio: Design System (PD2)
 
-Design system for the portfolio in the `PD2` folder. The colours, fonts and base components are reused from Deliverable #1. Everything new in Deliverable #2 is listed under [Changes in PD2](#changes-in-pd2).
+Design system for the portfolio in the `PD2` folder. The colours, fonts and base components are reused from First Portfolio. Everything new  is listed under [Changes in PD2](#changes-in-pd2).
 
 ## Site structure
 
@@ -27,7 +27,7 @@ All colours are CSS custom properties defined on `:root` in `styles.css`.
 | `--text` | `#2B2F2E` | Body text |
 | `--muted` | `#5F6B66` | Dates, intro text |
 | `--border` | `#D5E3DC` | Card, table and chip borders |
-| `--surface-tint` | `#EEF5F1` | **New in PD2.** Table headers, tag chips, inline code |
+| `--surface-tint` | `#EEF5F1` | Table headers, tag chips, inline code |
 
 ## 2. Typography
 
@@ -36,7 +36,7 @@ All colours are CSS custom properties defined on `:root` in `styles.css`.
 | Headings | Inter, Arial, sans-serif | `--font-heading` |
 | Body text | Inter, Arial, sans-serif | `--font-body` |
 | Dates and notes | Inter, Arial, sans-serif | `--font-dates-notes` |
-| Code **(new)** | System monospace stack (`ui-monospace`, Consolas, Menlo) | `--font-code` |
+| Code  | System monospace stack (`ui-monospace`, Consolas, Menlo) | `--font-code` |
 
 Inter weights loaded: 400, 600, 700.
 
@@ -77,13 +77,6 @@ Inter weights loaded: 400, 600, 700.
 - Sections use `aria-labelledby`, and the nav has `aria-label`.
 - Nav links jump straight to their section (no smooth scrolling), with `scroll-margin-top` so headings are not flush with the window edge.
 
-### Fixes
-- `<DOCTYPE html>` corrected to `<!DOCTYPE html>`.
-- `.siteheader` selectors corrected to `.site-header` so the h1 and tagline styles apply.
-- `rbga(...)` corrected to `rgba(...)` so the mobile nav divider shows.
-- Added missing semicolons after `display: inline-block`, `padding` in `.card`, `margin-bottom` in `.badge` and `font-size` in `.site-footer`.
-- Removed the unused Poppins font from the Google Fonts link.
-- Fixed typo "develop and app" to "develop an app" in the Technovations entry.
 
 ## 4. Yatzy game design system
 
