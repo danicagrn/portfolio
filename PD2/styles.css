@@ -1,5 +1,4 @@
 
-
 /* 1. Design tokens (CSS custom properties) */
 :root {
     /* Colours (unchanged from PD1) */
@@ -19,7 +18,7 @@
     --font-body: "Inter", Arial, sans-serif;
     --font-heading: "Inter", Arial, sans-serif;
     --font-dates-notes: "Inter", Arial, sans-serif;
-    /* NEW (PD2): monospace stack for code, endpoints and file names */
+    /*  monospace stack for code, endpoints and file names */
     --font-code: ui-monospace, "Cascadia Code", Consolas, Menlo, monospace;
 
     /* Shape */
@@ -93,7 +92,7 @@ a:focus-visible {
 .site-nav a:hover { background: var(--primary-dark); }
 .site-nav a:focus-visible { outline-color: #fff; outline-offset: -3px; }
 
-/* NEW (PD2): link that leaves the current page (e.g. Resume <-> Yatzy) */
+/*  link that leaves the current page (e.g. Resume <-> Yatzy) */
 .site-nav .site-nav__page { color: var(--accent); }
 .site-nav .site-nav__page:hover { color: #fff; }
 
@@ -108,7 +107,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
     border-bottom: 3px solid var(--accent);
     display: inline-block;
 }
-/* NEW (PD2): short intro paragraph under a section heading */
+/*  short intro paragraph under a section heading */
 .section-intro { max-width: 70ch; margin-bottom: 1.2rem; color: var(--muted); }
 
 /* 6. Card */
@@ -124,7 +123,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 .card p + p { margin-top: .5rem; }
 .card ul { padding-left: 1.2rem; }
 .card li { margin-bottom: .35rem; }
-/* NEW (PD2): accent variant for the featured Yatzy project card */
+/* accent variant for the featured Yatzy project card */
 .card--featured { border-left-color: var(--accent); }
 
 /*  7. Badge */
@@ -138,7 +137,7 @@ main { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
     border-radius: 999px;
     margin-bottom: .5rem;
 }
-/* NEW (PD2): secondary badge (green) so two badges can sit side by side */
+/*: secondary badge (green) so two badges can sit side by side */
 .badge--green { background: var(--primary); color: #fff; }
 
 /*  8. Layout helpers (flexbox) */
